@@ -107,7 +107,7 @@ class LearningAgent(Agent):
         # Set the agent state and default action
         self.state = state
         self.next_waypoint = self.planner.next_waypoint()
-        action = None
+       # action = None
 
         ########### 
         ## TO DO ##
@@ -123,6 +123,7 @@ class LearningAgent(Agent):
             action = random.choice(self.valid_actions)
         else:
             action = self.get_maxQ(state)
+            
             return action
 
 
@@ -136,8 +137,6 @@ class LearningAgent(Agent):
         ###########
         # When learning, implement the value iteration update rule
         #   Use only the learning rate 'alpha' (do not use the discount factor 'gamma')
-        if self.learning:
-            self.Q[state][action] = (1 - self.alpha) * (self.Q[state][action]) + self.alpha * reward
         return
 
 
